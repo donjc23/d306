@@ -119,7 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blog.apps.data',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -153,5 +153,12 @@ LOGGING = {
     }
 }
 # Parse database configuration from $DATABASE_URL
+##import dj_database_url
+##DATABASES['default'] =  dj_database_url.config()
+
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+if not os.environ.has_key('DATABASE_URL'):
+    os.environ['DATABASE_URL'] = 'postgres://postgres:123@localhost/postgres'
+
+DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
+                 

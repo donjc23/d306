@@ -1,17 +1,35 @@
-<html>
-  <head>
-    <title>template</title>
-  </head>
+{% extends "base.html" %}
 
-  <body>
-    <h1>template testing...</h1>
-    <h2>Enter some text:</h2>
-    <form method="post">
-      <textarea name="text" style="height: 100px; width: 400px;"></textarea>
-	<br>
-	<br>
-	<input type = "submit" value = "DONT CLICK">
-    </form>
-  </body>
-  
-</html>
+<!-- ---------head------------------------- -->
+{% block title %} 
+	Index Page 
+{% endblock %}
+<!-- ---------end head------------------------- -->
+
+<!-- ----------body------------------------ -->
+{% block navi %}
+	<a href="{% url homepage_index %}">Home</a> - <a href="{% url homepage_about %}">About</a> - 
+	<a href="{% url homepage_archive %}">Archive</a> - <a href="{% url homepage_contact %}">Contact</a>
+{% endblock %}
+<!-- ---------------------------------- -->
+{% block content %}
+	<h1>template testing...</h1>
+    <h2>Entries:</h2>
+    {% for e in entries %}
+		<div> 
+			{{ e.title }} - {{ e.created }} 
+		</div>
+		<div> 
+			{{ e.text }} 
+		 </div>
+
+		<br>
+    {% endfor %}
+{% endblock %}
+<!-- ---------------------------------- -->
+
+{% block footer %} 
+	@2013 new start
+{% endblock %} 
+
+<!-- ----------end body------------------------ -->
