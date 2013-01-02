@@ -4,5 +4,5 @@ urlpatterns = patterns('blog.apps.homepage.views',
                        url(r'^$', 'index', name="homepage_index"),
                        url(r'^about/$', 'about', name="homepage_about"),
                        url(r'^contact/$', 'contact', name="homepage_contact"),
-                       url(r'^archive/$', 'archive', name="homepage_archive"),
+                       url(r'^youtube/$', 'youtube', name="homepage_youtube"),
 )

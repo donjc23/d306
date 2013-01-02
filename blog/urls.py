@@ -5,10 +5,13 @@ from blog import settings
 from django.contrib import admin
 admin.autodiscover()
 
+##from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+##urlpatterns += staticfiles_urlpatterns()
+
 urlpatterns = patterns('',
     (r'^', include('blog.apps.homepage.urls')),
     (r'^admin/', include(admin.site.urls)),
-    #(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT}),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
     # Examples:
     # url(r'^$', 'blog.views.home', name='home'),
     # url(r'^blog/', include('blog.foo.urls')),
