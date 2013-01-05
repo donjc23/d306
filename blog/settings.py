@@ -156,10 +156,13 @@ LOGGING = {
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
+    "django.core.context_processors.csrf",
     "django.core.context_processors.media",
     'django.core.context_processors.static',
 )
+
+CSRF_FAILURE_VIEW = 'blog.apps.homepage.views.csrf_rejected'
+
 # Parse database configuration from $DATABASE_URL
 ##import dj_database_url
 ##DATABASES['default'] =  dj_database_url.config()

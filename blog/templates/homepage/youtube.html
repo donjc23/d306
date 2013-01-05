@@ -10,10 +10,62 @@
 
 {% block content %}
 
-	<h1>template testing...</h1>
-    <h2>Youtube Page</h2>
+	<h1>bootstrap testing...</h1>
+    <h2>Youtube Video</h2>
     <br>
+	<div id="vid_list">
+		<ul class="nav nav-pills">
+			<li><a class="v" href="#">001</a></li>
+			<li><a class="v" href="#">002</a></li>
+			<li><a class="v" href="#">003</a></li>
+			<li><a class="v" href="#">004</a></li>
+			<li><a class="v" href="#">005</a></li>
+			<li><a class="v" href="#">006</a></li>
+			<li><a class="v" href="#">007</a></li>
+			<li><a class="v" href="#">008</a></li>
+			<li><a class="v" href="#">009</a></li>
+			<li><a class="v" href="#">010</a></li>
+		 </ul>
+	 </div>
+	 <br><br>
+	 <div id="vid_box">
+			
+			<div id="vid">
+				<iframe width="640" height="360" src="http://www.youtube.com/embed/abBLKmqUPRQ" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div id="caption" class="text-info">
+				<p>youtube's top 10 most viewed music videos.. cool eh?
+				</p>
+			</div>
+		 <br><br><hr>				
+		</div>	
+		
+		
+	
+	
+	
 {% endblock %}
 
+{% block bottom-script %}
 
+	<script type="text/javascript">
+	$(document).ready(function() {
+	
+		$iframe = $("#vid iframe"), $caption = $("#caption");
+		
+		var videos = {{ videos|safe }};
+		
+
+		$(".v").click(function(){
+			
+			var index = $(".v").index(this);
+			$caption.text(videos[index].video.caption );
+			$iframe.attr("src", videos[index].video.source);
+			return false;
+		})
+		
+	});	
+	</script>
+
+{% endblock %}
 <!-- ----------end body------------------------ -->

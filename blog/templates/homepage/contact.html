@@ -4,15 +4,34 @@
 {% block title %} 
 	Contact Page 
 {% endblock %}
+
 <!-- ---------end head------------------------- -->
 
 <!-- ----------body------------------------ -->
 
 {% block content %}
+	
+    <h2>Contact</h2>
+    
+	{% if success %}
+		
+		<h2>Data posted:</h2>
+		<p>email: {{ email }}</p>
+		<p>title: {{ title }}</p>
+		<p>text: {{ text }}</p>
+	
+	{% else %}
+    <form action="." method="POST">
+		{% csrf_token %}
+        {{ contact_form.as_p }}
+        
+        <input type="submit" value="Submit" >
+           
+        <input type="reset" value="Reset" >
+        
+    </form>
 
-	<h1>template testing...</h1>
-    <h2>Contact Page</h2>
-    <br>
+    {% endif %}
 {% endblock %}
 
 

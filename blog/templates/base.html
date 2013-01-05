@@ -1,17 +1,77 @@
+<!--
 <html>
 	
   <head>
-    <title> {% block title %}{% endblock %} </title>
-	{% block js %}{% endblock %}
-	{% block css %}<link rel="stylesheet" href="{{ STATIC_URL}}css/main.css">{% endblock %}
+    <title> {% block title1 %}{% endblock %} </title>
+	{% block js1 %}{% endblock %}
+	{% block css1 %}
+		<link rel="stylesheet" href="{{ STATIC_URL}}css/main.css">
+		<!--<link rel="stylesheet" href="{{ STATIC_URL}}css/main1.css">-------------
+	{% endblock %}
   </head>
 
   <body>
     <div id=top> my blog </div>
-    <div id=navi> {% block navi %}{% endblock %} </div>
-    <div id=content> {% block content %}{% endblock %} </div>
-	<div id=footer> {% block footer %}{% endblock %} </div>
+    <div id=navi> {% block navi1 %}{% endblock %} </div>
+    <div id=content> {% block content1 %}{% endblock %} </div>
+	<div id=footer> {% block footer1 %}{% endblock %} </div>
 	
   </body>
   
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+	{% block css %}
+		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+	{% endblock %}
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+	  {% block inpage-style %}
+		
+	  {% endblock %}
+    </style>
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+			{% block navi %}{% endblock %}
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+	
+		{% block content %}{% endblock %}
+		
+		{% block footer %}{% endblock %}   
+    </div> <!-- /container -->
+
+		
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}jquery/jquery.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+    {% block bottom-script %}{% endblock %}
+
+  </body>
 </html>

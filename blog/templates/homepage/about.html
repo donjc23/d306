@@ -4,15 +4,50 @@
 {% block title %} 
 	About Page 
 {% endblock %}
+
 <!-- ---------end head------------------------- -->
 
 <!-- ----------body------------------------ -->
+{% block inpage-style %}
+	 .featurette {
+      padding-top: 120px; 
+      overflow: hidden; 
+    }
+    .featurette-image {
+      margin-top: -120px; 
+    }
+
+    
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 40px;
+    }
+
+    
+    .featurette-heading {
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+    }	
+		
+{% endblock %}
+
 
 {% block content %}
 
-	<h1>template testing...</h1>
+	<h1>bootstrap testing...</h1>
     <h2>About Page</h2>
     <br>
+	<div class="featurette">
+        <img class="featurette-image pull-right" src="{{ STATIC_URL }}img/iplay23.jpg">
+        <h2 class="featurette-heading">Holla Amigos, im don-ky don wang.<span class="muted">this site is donk that'll blow your mind.</span></h2>
+        <p class="lead">Just check it out! its too obvious that im a total newbie. i'm loving this python/django/bootstrap/jquery combo!!!
+		thankx to alan getting me into heroku, fking awesome!</p>
+      </div>
+
 {% endblock %}
 
 
