@@ -52,8 +52,24 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-			{% block navi %}{% endblock %}
-          
+			{% block navi %}
+				 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				 </a>
+				  
+				<a class="brand" href="#">D306</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+					  <li><a href="{% url homepage_index %}">Home</a>
+					  <li><a href="{% url homepage_about %}">About</a></li>
+					  <li><a href="{% url homepage_youtube %}">Youtube</a></li>
+					  <li><a href="{% url blog_page_main_blog %}">Blog</a></li>
+					  <li><a href="{% url homepage_contact %}">Contact</a></li>
+					</ul>
+				</div><!--/.nav-collapse --> 
+			{% endblock %}
         </div>
       </div>
     </div>
