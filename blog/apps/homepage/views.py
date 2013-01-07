@@ -29,7 +29,7 @@ def contact(request):
             email = contact_form.cleaned_data['email']
             title = contact_form.cleaned_data['title']
             text = contact_form.cleaned_data['text']
-            send_mail(title, text, email, ['donwang23@gmail.com'], fail_silently=False)
+            #send_mail(title, text, email, ['donwang23@gmail.com'], fail_silently=False)
     else:
         contact_form = ContactForm()
 
