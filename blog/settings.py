@@ -161,7 +161,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
 )
 
-CSRF_FAILURE_VIEW = 'blog.apps.homepage.views.csrf_rejected'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'donwang23@gmail.com'
+EMAIL_HOST_PASSWORD = 'dlw108108'
+
 
 # Parse database configuration from $DATABASE_URL
 ##import dj_database_url

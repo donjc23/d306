@@ -4,6 +4,8 @@ from blog.apps.data.models import Entry
 from django.template import RequestContext
 
 from blog.apps.homepage.forms import ContactForm
+from django.core.mail import send_mail
+
 
 def index(request):
     entries = Entry.objects.published_entries().order_by('-id')
@@ -27,6 +29,7 @@ def contact(request):
             email = contact_form.cleaned_data['email']
             title = contact_form.cleaned_data['title']
             text = contact_form.cleaned_data['text']
+            send_mail(title, text, email, ['donwang23@gmail.com'], fail_silently=False)
     else:
         contact_form = ContactForm()
 
