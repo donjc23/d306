@@ -5,10 +5,12 @@ from django.template import RequestContext
 
 from blog.apps.homepage.forms import ContactForm
 from django.core.mail import send_mail
+from django import db
 
 
 def index(request):
     entries = Entry.objects.published_entries().order_by('-id')
+    db.close_connection()
     ctx = {'entries':entries}
     return render_to_response('homepage/index.html', ctx, context_instance=RequestContext(request))
 
