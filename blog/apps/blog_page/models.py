@@ -1,4 +1,6 @@
 from django.db import models
+from blog.apps.blog_page.managers import CommentManager
+
 
 # Create your models here.
 class Comment(models.Model):
@@ -7,6 +9,7 @@ class Comment(models.Model):
     text = models.TextField()
     published = models.BooleanField(db_index = True, default=True)
 
+    objects = CommentManager()
 
     def __unicode__(self):
         return u"%s - %s" % (self.name, self.created)

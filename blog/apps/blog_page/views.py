@@ -20,7 +20,7 @@ def main_blog(request):
     else:
         comment_form = CommentForm()
 
-    entries = Comment.objects.filter(published=True).order_by('-id')
+    entries = Comment.objects.published_comments().order_by('-id')
     db.close_connection()
     ctx = {'comment_form':comment_form, 'entries':entries,'success':success }
     return render_to_response('blog_page/main_blog.html',ctx, context_instance=RequestContext(request))

@@ -9,10 +9,10 @@ from django import db
 
 
 def index(request):
-    entries = Entry.objects.published_entries().order_by('-id')
-    db.close_connection()
-    ctx = {'entries':entries}
-    return render_to_response('homepage/index.html', ctx, context_instance=RequestContext(request))
+##    entries = Entry.objects.published_entries().order_by('-id')
+##    db.close_connection()
+##    ctx = {'entries':entries}
+    return render_to_response('homepage/index.html', context_instance=RequestContext(request))
 
 def about(request):
     return render_to_response('homepage/about.html', context_instance=RequestContext(request))
