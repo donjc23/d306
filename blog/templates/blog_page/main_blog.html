@@ -55,6 +55,30 @@
 				  
 				
 		  {% endblock %}
+		  <br><br><hr>
+		  <h2>Comment:</h2>
+			
+			
+				
+				{% for e in entries %}
+					<div> 
+						{{ e.name }} - {{ e.created }} 
+					</div><br>
+					<div> 
+						{{ e.text }} 
+					</div><br><hr>
+				{% endfor %}
+			
+				<form action="." method="POST">
+					{% csrf_token %}
+					{{ comment_form.as_p }}
+					
+					<input type="submit" value="Submit" >
+					<input type="reset" value="Reset" >
+					
+				</form>
+			
+		  
 		  
         </div><!--/span-->
       </div><!--/row-->

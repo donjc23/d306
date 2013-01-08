@@ -29,7 +29,7 @@ def contact(request):
             email = contact_form.cleaned_data['email']
             title = contact_form.cleaned_data['title']
             text = contact_form.cleaned_data['text']
-            #send_mail(title, text, email, ['donwang23@gmail.com'], fail_silently=False)
+            #send_mail(title, text, 'donwang23@gmail.com', [email,], fail_silently=False)
     else:
         contact_form = ContactForm()
 
@@ -54,7 +54,7 @@ def youtube(request):
     ctx = {'videos':videos, 'success':success}
     return render_to_response('homepage/youtube.html', ctx, context_instance=RequestContext(request))
 
-def csrf_rejected(request, reason=""):
+def rejected(request, reason=""):
     ctx = {'reason':reason}
     return render_to_response('homepage/rejected.html', ctx, context_instance=RequestContext(request))
 

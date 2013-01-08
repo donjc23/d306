@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.data',
+    'blog.apps.blog_page',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -161,13 +162,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
 )
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'donwang23@gmail.com'
-EMAIL_HOST_PASSWORD = 'dlw108108'
 
 
+CSRF_FAILURE_VIEW = 'blog.apps.homepage.views.rejected'
+ERROR_PAGE_URL = 'blog.apps.homepage.views.rejected'
 # Parse database configuration from $DATABASE_URL
 ##import dj_database_url
 ##DATABASES['default'] =  dj_database_url.config()

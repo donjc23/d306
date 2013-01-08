@@ -1,13 +1,26 @@
 # Create your views here.
 from django.shortcuts import render_to_response
-from blog.apps.data.models import Entry
+from blog.apps.blog_page.models import Comment
 from django.template import RequestContext
 
-from blog.apps.homepage.forms import ContactForm
+from blog.apps.blog_page.forms import CommentForm
 
 
 def main_blog(request):
-    return render_to_response('blog_page/main_blog.html', context_instance=RequestContext(request))
+    success = False
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            success = True
+            comment_form.save()
+            
+    else:
+        comment_form = CommentForm()
+
+    entries = Comment.objects.filter(published=True).order_by('-id')
+    ctx = {'comment_form':comment_form, 'entries':entries}
+    return render_to_response('blog_page/main_blog.html',ctx, context_instance=RequestContext(request))
 
 
 def b010613(request):
